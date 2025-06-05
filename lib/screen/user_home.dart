@@ -1,4 +1,5 @@
 import 'package:doan/screen/account.dart';
+import 'package:doan/screen/feedBack.dart';
 import 'package:flutter/material.dart';
 import 'package:doan/screen/khaibaotttv.dart';
 class UserHome extends StatelessWidget {
@@ -143,6 +144,16 @@ class UserHome extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => Account(
+
+                  ),
+                ),
+              );
+            }
+            if (title.trim().contains('Phản ánh')) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PhanAnhScreen(
 
                   ),
                 ),
