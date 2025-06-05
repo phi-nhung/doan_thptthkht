@@ -76,7 +76,7 @@ class _PhanAnhScreenState extends State<PhanAnhScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Gửi phản ánh',style: TextStyle(color: Colors.white, fontSize: 30),),
+        title: const Text('Gửi phản ánh',style: TextStyle(color: Colors.white, fontSize: 24,fontWeight: FontWeight.bold),),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.pop(context),

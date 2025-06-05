@@ -1,5 +1,6 @@
 import 'package:doan/screen/account.dart';
 import 'package:doan/screen/feedBack.dart';
+import 'package:doan/screen/traCuuThue.dart';
 import 'package:flutter/material.dart';
 import 'package:doan/screen/khaibaotttv.dart';
 class UserHome extends StatelessWidget {
@@ -154,6 +155,16 @@ class UserHome extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => PhanAnhScreen(
+
+                  ),
+                ),
+              );
+            }
+            if (title.trim().contains('Tra cứu thuế')) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => TraCuuThueScreen(
 
                   ),
                 ),

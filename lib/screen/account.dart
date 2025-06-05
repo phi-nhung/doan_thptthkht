@@ -12,8 +12,8 @@ class _AccountState extends State<Account> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tài khoản', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30),),
-        centerTitle: true,
+        title: const Text('Tài khoản', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),),
+        
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
