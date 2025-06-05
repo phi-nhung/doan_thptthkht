@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:doan/screen/khaibaotttv.dart';
 class UserHome extends StatelessWidget {
   const UserHome({super.key});
 
@@ -29,7 +29,7 @@ class UserHome extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/image_6-hinh-nen-powerpoint-trong-dong.jpg'),
+            image: AssetImage('assets/images/trongdong.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -42,7 +42,7 @@ class UserHome extends StatelessWidget {
                 height: 0.2 * MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
                   image: const DecorationImage(
-                    image: AssetImage('assets/images/hinh-anh-welcome-to-vietnam-800x420.jpg'),
+                    image: AssetImage('assets/images/home.jpg'),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: BorderRadius.circular(20),
@@ -122,19 +122,34 @@ class UserHome extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.2,
       width: MediaQuery.of(context).size.width * 0.40,
       child: Card(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 25, color: Colors.blue),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                title,
-                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
+        child: InkWell(
+          onTap: () {
+            print('Card tapped: ' + title);
+            if (title.trim().contains('Thông tin lưu trú')) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResidenceInfoPage(
+
+                  ),
+                ),
+              );
+            }
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 25, color: Colors.blue),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  title,
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
