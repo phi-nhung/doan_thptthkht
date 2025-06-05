@@ -1,5 +1,6 @@
+import 'package:doan/screen/account.dart';
 import 'package:flutter/material.dart';
-
+import 'package:doan/screen/khaibaotttv.dart';
 class UserHome extends StatelessWidget {
   const UserHome({super.key});
 
@@ -12,7 +13,7 @@ class UserHome extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 20,
-              //backgroundImage: AssetImage('assets/images/pngtree-stereo-blue-gradient-network-security-logo-free-logo-design-template-png-image_5047340.jpg'),
+              backgroundImage: AssetImage('assets/images/5556499.png'),
               backgroundColor: Colors.transparent,
             ),
             TextButton(
@@ -25,12 +26,14 @@ class UserHome extends StatelessWidget {
             Icon(Icons.search, size: 30),
           ],
         ),
+        backgroundColor: Colors.blue,
       ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/image_6-hinh-nen-powerpoint-trong-dong.jpg'),
+            image: AssetImage('assets/images/trongdong.jpg'),
             fit: BoxFit.cover,
+            opacity: 0.5,
           ),
         ),
         child: SafeArea(
@@ -42,7 +45,7 @@ class UserHome extends StatelessWidget {
                 height: 0.2 * MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
                   image: const DecorationImage(
-                    image: AssetImage('assets/images/hinh-anh-welcome-to-vietnam-800x420.jpg'),
+                    image: AssetImage('assets/images/home.jpg'),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: BorderRadius.circular(20),
@@ -54,7 +57,7 @@ class UserHome extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Tiện ích khác',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -88,7 +91,7 @@ class UserHome extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Nhóm dịch vụ',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -122,19 +125,44 @@ class UserHome extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.2,
       width: MediaQuery.of(context).size.width * 0.40,
       child: Card(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 25, color: Colors.blue),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                title,
-                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
+        child: InkWell(
+          onTap: () {
+            print('Card tapped: ' + title);
+            if (title.trim().contains('Thông tin lưu trú')) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResidenceInfoPage(
+
+                  ),
+                ),
+              );
+            }
+            if (title.trim().contains('Tài khoản')) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Account(
+
+                  ),
+                ),
+              );
+            }
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 30, color: Color.fromARGB(255, 42, 53, 170)),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  title,
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -143,19 +171,27 @@ class UserHome extends StatelessWidget {
   return Column(
     mainAxisSize: MainAxisSize.min,
     children: [
-      IconButton(
-        onPressed: () {},
-        icon: Icon(icon, size: 20, color: Colors.blue),
+      Container(
+        width: 60,
+        height: 60,
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(255, 42, 53, 170),
+          shape: BoxShape.circle,
+        ),
+        child: Icon(icon, size: 30, color: Colors.white),
       ),
+      const SizedBox(height: 8),
       SizedBox(
-        width: 80, // Adjust width as needed
-        child: Text(
-          label,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          softWrap: true,
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+        width: 80, // Cố định chiều rộng
+        height: 34, // ⚠️ Cố định chiều cao để text dài hay ngắn đều không lệch icon
+        child: Center(
+          child: Text(
+            label,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     ],
