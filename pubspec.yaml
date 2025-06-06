@@ -68,6 +68,12 @@ flutter:
     - assets/images/home.jpg 
     - assets/images/trongdong.jpg
     - assets/images/5556499.png
+    - assets/images/avt.png
+    - assets/images/baotri.jpg
+    - assets/images/huongdan.jpg
+    - assets/images/cccd.jpg
+    - assets/images/baomat.jpg
+    - assets/images/dichvucong.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

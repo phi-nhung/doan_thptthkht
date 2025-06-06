@@ -3,6 +3,8 @@ import 'package:doan/screen/feedBack.dart';
 import 'package:doan/screen/traCuuThue.dart';
 import 'package:flutter/material.dart';
 import 'package:doan/screen/khaibaotttv.dart';
+import 'package:doan/screen/thongtincd.dart';
+import 'package:doan/screen/tintuc.dart'; 
 class UserHome extends StatelessWidget {
   const UserHome({super.key});
 
@@ -130,12 +132,27 @@ class UserHome extends StatelessWidget {
         child: InkWell(
           onTap: () {
             print('Card tapped: ' + title);
+            if (title.trim().contains('Thông tin công dân')) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ThongTinCaNhanPage(), 
+                ),
+              );
+            }
+            if (title.trim().contains('Tin tức')) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => TinTucPage(), 
+                ),
+              );
+            }
             if (title.trim().contains('Thông tin lưu trú')) {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => ResidenceInfoPage(
-
                   ),
                 ),
               );
@@ -145,7 +162,6 @@ class UserHome extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => Account(
-
                   ),
                 ),
               );
@@ -155,7 +171,6 @@ class UserHome extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => PhanAnhScreen(
-
                   ),
                 ),
               );
